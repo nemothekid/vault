@@ -6,6 +6,10 @@ import (
 )
 
 func ParsePolicies(policiesRaw string) []string {
+	if policiesRaw == "" {
+		return []string{"default"}
+	}
+
 	policies := strings.Split(policiesRaw, ",")
 	defaultFound := false
 	for i, p := range policies {
